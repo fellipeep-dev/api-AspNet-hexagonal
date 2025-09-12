@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  db:
+    image: bitnami/postgresql:16
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRESQL_USERNAME: AspNetUSER
+      POSTGRESQL_PASSWORD: AspNetPASS
+      POSTGRESQL_DATABASE: PostgreSqlDB
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+    driver: local
