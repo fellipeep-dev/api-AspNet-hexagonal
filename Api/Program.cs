@@ -1,4 +1,7 @@
-using Microsoft.AspNetCore.Builder;
+using AspNetApi.Application;
+using AspNetApi.Application.Interfaces.User;
+using AspNetApi.Domain.Repositories.User;
+using AspNetApi.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<CreateUserUseCase>();
-builder.Services.AddScoped<FindAllUsersUseCase>();
+builder.Services.AddApplicationModule();
 builder.Services.AddControllers();
 
 
