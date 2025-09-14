@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+.DS_Store
+*.user
+*.suo
+*.userosscache
+*.sln.ide
+*.log
+node_modules/
+npm-debug.log
