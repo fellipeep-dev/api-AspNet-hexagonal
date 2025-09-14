@@ -1,17 +1,35 @@
 version: "3.9"
 
 services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "80:80"
+    env_file:
+      - .env
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}"
+    depends_on:
+      db:
+        condition: service_healthy
+
   db:
     image: bitnami/postgresql:16
     restart: always
     ports:
       - "5432:5432"
-    environment:
-      POSTGRESQL_USERNAME: AspNetUSER
-      POSTGRESQL_PASSWORD: AspNetPASS
-      POSTGRESQL_DATABASE: PostgreSqlDB
+    env_file:
+      - .env
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data:/bitnami/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db_data:
