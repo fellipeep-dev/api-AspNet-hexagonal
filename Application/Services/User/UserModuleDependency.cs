@@ -8,7 +8,10 @@ namespace AspNetApi.Application.Services.User
        public static IServiceCollection AddUserModule(this IServiceCollection services)
        {
            services.AddTransient<ICreateUserUseCase, CreateUserUseCase>();
-           services.AddScoped<FindAllUsersUseCase>();
+           services.AddTransient<IGetUserByIdUseCase, GetUserByIdUseCase>();
+           services.AddTransient<IGetUsersUseCase, GetUsersUseCase>();
+           services.AddTransient<IUpdateUserUseCase, UpdateUserUseCase>();
+           services.AddTransient<IDeleteUserUseCase, DeleteUserUseCase>();
                  
            return services;
        }

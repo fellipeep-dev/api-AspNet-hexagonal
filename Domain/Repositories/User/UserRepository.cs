@@ -15,9 +15,26 @@ namespace AspNetApi.Domain.Repositories.User
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<UserEntity>> FindAllAsync()
+        public async Task<IEnumerable<UserEntity>> GetUsersAsync()
         {
             return await _context.Users.ToListAsync();
+        }
+
+        public async Task<UserEntity?> GetUserByIdAsync(Guid id)
+        {
+            return await _context.Users.FindAsync(id);
+        }
+
+        public async Task UpdateUserAsync(UserEntity user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteUserAsync(UserEntity user)
+        {
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
         }
     }
 }
