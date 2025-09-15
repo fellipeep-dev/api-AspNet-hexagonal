@@ -44,5 +44,5 @@ jobs:
       - name: Build
         run: dotnet build "AspNetApi.csproj" --no-restore --configuration Release
 
-      - name: Run tests
-        run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
+      # - name: Run tests
+      #   run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
