@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 COPY ["AspNetApi.csproj", "./"]
-RUN dotnet restore "AspNetApi.csproj"
+RUN dotnet restore "AspNetApi.csproj" -r linux-musl-x64
 
 COPY . .
 
-RUN dotnet publish "AspNetApi.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true
+RUN dotnet publish "AspNetApi.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true -r linux-musl-x64
 
 # stage runtime
 FROM mcr.microsoft.com/dotnet/aspnet:9.0-alpine AS runtime
