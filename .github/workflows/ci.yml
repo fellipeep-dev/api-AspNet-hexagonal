@@ -39,7 +39,7 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore "AspNetApi.csproj"
 
       - name: Build
         run: dotnet build --no-restore --configuration Release
