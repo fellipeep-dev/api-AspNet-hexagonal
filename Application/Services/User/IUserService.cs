@@ -1,7 +1,7 @@
 using AspNetApi.Application.Dtos.User;
-using AspNetApi.Domain.Entities.User;
+using AspNetApi.Domain.User;
 
-namespace AspNetApi.Api.Interfaces.User
+namespace AspNetApi.Application.Services.User
 {
     public interface ICreateUserUseCase
     {
@@ -17,7 +17,7 @@ namespace AspNetApi.Api.Interfaces.User
     }
     public interface IUpdateUserUseCase
     {
-        Task ExecuteAsync(Guid id, UpdateUserDto updateUserDto);
+        Task ExecuteAsync(UpdateUserDto updateUserDto);
     }
     public interface IDeleteUserUseCase
     {

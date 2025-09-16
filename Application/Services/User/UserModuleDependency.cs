@@ -1,4 +1,3 @@
-using AspNetApi.Api.Interfaces.User;
 using AspNetApi.Application.Services.User.UseCases;
 
 namespace AspNetApi.Application.Services.User

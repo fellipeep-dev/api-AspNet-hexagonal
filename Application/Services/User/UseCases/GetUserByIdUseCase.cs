@@ -1,6 +1,4 @@
-using AspNetApi.Api.Interfaces.User;
-using AspNetApi.Application.Interfaces.User;
-using AspNetApi.Domain.Entities.User;
+using AspNetApi.Domain.User;
 
 namespace AspNetApi.Application.Services.User.UseCases
 {

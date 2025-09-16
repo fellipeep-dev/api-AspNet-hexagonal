@@ -1,7 +1,5 @@
-using AspNetApi.Application.Interfaces.User;
 using AspNetApi.Application.Dtos.User;
-using AspNetApi.Domain.Entities.User;
-using AspNetApi.Api.Interfaces.User;
+using AspNetApi.Domain.User;
 
 namespace AspNetApi.Application.Services.User.UseCases
 {
@@ -12,10 +10,10 @@ namespace AspNetApi.Application.Services.User.UseCases
         public async Task ExecuteAsync(CreateUserDto createUserDto)
         {
             var user = new UserEntity(
-              createUserDto.Name,
-              createUserDto.Email,
-              createUserDto.BirthDate,
-              createUserDto.Password
+                createUserDto.Name,
+                createUserDto.Email,
+                createUserDto.BirthDate,
+                createUserDto.Password
             );
 
             await _userRepository.AddUserAsync(user);

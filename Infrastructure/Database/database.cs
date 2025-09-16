@@ -1,4 +1,4 @@
-using AspNetApi.Domain.Entities.User;
+using AspNetApi.Domain.User;
 using Microsoft.EntityFrameworkCore;
 
 namespace AspNetApi.Infrastructure.Database

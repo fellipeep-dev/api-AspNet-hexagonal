@@ -1,6 +1,4 @@
-using AspNetApi.Domain.Entities.User;
-
-namespace AspNetApi.Application.Interfaces.User
+namespace AspNetApi.Domain.User
 {
     public interface IUserRepository
     {

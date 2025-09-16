@@ -1,5 +1,5 @@
-using AspNetApi.Api.Interfaces.User;
 using AspNetApi.Application.Dtos.User;
+using AspNetApi.Application.Services.User;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetApi.Api.Controllers
@@ -41,14 +41,13 @@ namespace AspNetApi.Api.Controllers
             return Ok(user);
         }
 
-        [HttpPut("update/{id:guid}")]
+        [HttpPut("update")]
         public async Task<IActionResult> UpdateUser(
-            [FromRoute] Guid id,
             [FromBody] UpdateUserDto updateUserDto,
             [FromServices] IUpdateUserUseCase _updateUserUseCase
         )
         {
-            await _updateUserUseCase.ExecuteAsync(id, updateUserDto);
+            await _updateUserUseCase.ExecuteAsync(updateUserDto);
 
             return Ok(new { Message = "User updated successfully" });
         }

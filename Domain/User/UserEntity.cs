@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetApi.Domain.Entities.User
+namespace AspNetApi.Domain.User
 {
     public class UserEntity(string name, string email, DateOnly birthDate, string password)
     {
@@ -18,5 +18,20 @@ namespace AspNetApi.Domain.Entities.User
 
         [Required]
         public string Password { get; private set; } = password;
+        
+        public void Update(string? name, string? email, DateOnly? birthDate, string? password)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+                Name = name;
+
+            if (!string.IsNullOrWhiteSpace(email))
+                Email = email;
+
+            if (birthDate.HasValue)
+                BirthDate = birthDate.Value;
+
+            if (!string.IsNullOrWhiteSpace(password))
+                Password = password;
+        }
     }
 }

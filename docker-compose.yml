@@ -19,8 +19,10 @@ services:
     restart: always
     ports:
       - "5432:5432"
-    env_file:
-      - .env
+    environment:
+      POSTGRESQL_USERNAME: AspNetUSER
+      POSTGRESQL_PASSWORD: AspNetPASS
+      POSTGRESQL_DATABASE: PostgreSqlDB
     volumes:
       - db_data:/bitnami/postgresql
     healthcheck:
