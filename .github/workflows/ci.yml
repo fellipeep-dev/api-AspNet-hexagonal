@@ -12,11 +12,11 @@ jobs:
 
     services:
       postgres:
-        image: bitnami/postgresql:16
+        image: postgresql:16
         env:
-          POSTGRESQL_USERNAME: AspNetUSER
-          POSTGRESQL_PASSWORD: AspNetPASS
-          POSTGRESQL_DATABASE: PostgreSqlDB
+          POSTGRES_USER: AspNetUSER
+          POSTGRES_PASSWORD: AspNetPASS
+          POSTGRES_DB: PostgreSqlDB
         ports:
           - 5432:5432
         options: >-
