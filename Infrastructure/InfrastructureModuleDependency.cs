@@ -1,8 +1,8 @@
-using AspNetApi.Domain.User;
-using AspNetApi.Infrastructure.Repositories.User;
+using Domain.User;
+using Infrastructure.Repositories.User;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetApi.Infrastructure
+namespace Infrastructure
 {
     public static class InfrastructureModuleDependency
     {

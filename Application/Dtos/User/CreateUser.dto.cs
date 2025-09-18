@@ -1,4 +1,4 @@
-namespace AspNetApi.Application.Dtos.User
+namespace Application.Dtos.User
 {
     public class CreateUserDto(string name, string email, DateOnly birthDate, string password)
     {

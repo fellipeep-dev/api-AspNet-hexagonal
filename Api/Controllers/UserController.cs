@@ -1,8 +1,8 @@
-using AspNetApi.Application.Dtos.User;
-using AspNetApi.Application.Services.User;
+using Application.Dtos.User;
+using Application.Services.User;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AspNetApi.Api.Controllers
+namespace Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

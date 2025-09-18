@@ -1,7 +1,7 @@
-using AspNetApi.Domain.User;
+using Domain.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace AspNetApi.Infrastructure.Database
+namespace Infrastructure.Database
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {

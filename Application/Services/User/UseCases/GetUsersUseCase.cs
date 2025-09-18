@@ -1,6 +1,6 @@
-using AspNetApi.Domain.User;
+using Domain.User;
 
-namespace AspNetApi.Application.Services.User.UseCases
+namespace Application.Services.User.UseCases
 {
     public class GetUsersUseCase(IUserRepository userRepository) : IGetUsersUseCase
     {

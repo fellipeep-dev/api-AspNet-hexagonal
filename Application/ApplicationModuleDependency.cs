@@ -1,6 +1,7 @@
-using AspNetApi.Application.Services.User;
+using Application.Services.User;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetApi.Application
+namespace Application
 {
     public static class UserModuleDependency
     {

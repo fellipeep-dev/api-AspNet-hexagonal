@@ -1,4 +1,4 @@
-namespace AspNetApi.Domain.User
+namespace Domain.User
 {
     public interface IUserRepository
     {

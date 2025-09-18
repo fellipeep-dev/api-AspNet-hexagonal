@@ -1,7 +1,7 @@
-using AspNetApi.Application.Dtos.User;
-using AspNetApi.Domain.User;
+using Application.Dtos.User;
+using Domain.User;
 
-namespace AspNetApi.Application.Services.User.UseCases
+namespace Application.Services.User.UseCases
 {
     public class CreateUserUseCase(IUserRepository userRepository) : ICreateUserUseCase
     {

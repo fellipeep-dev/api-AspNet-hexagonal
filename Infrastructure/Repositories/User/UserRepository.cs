@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using AspNetApi.Domain.User;
-using AspNetApi.Infrastructure.Database;
+using Domain.User;
+using Infrastructure.Database;
 
-namespace AspNetApi.Infrastructure.Repositories.User
+namespace Infrastructure.Repositories.User
 {
     public class UserRepository(AppDbContext context) : IUserRepository
     {

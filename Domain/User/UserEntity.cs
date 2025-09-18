@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace AspNetApi.Domain.User
+namespace Domain.User
 {
     public class UserEntity(string name, string email, DateOnly birthDate, string password)
     {

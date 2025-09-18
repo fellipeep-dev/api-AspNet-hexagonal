@@ -1,7 +1,7 @@
-using AspNetApi.Application.Services.User.UseCases;
+using Application.Services.User.UseCases;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AspNetApi.Application.Services.User
+namespace Application.Services.User
 {
     public static class UserModuleDependency
     {
