@@ -2,14 +2,12 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-ENV NUGET_PACKAGES=/root/.nuget/packages
 COPY ["Api/Api.csproj", "Api/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
-COPY ["api-AspNet-hexagonal.sln", "./"]
 
-RUN dotnet restore "api-AspNet-hexagonal.sln" -r linux-musl-x64 --disable-parallel
+RUN dotnet restore "Api/Api.csproj" -r linux-musl-x64
 
 COPY . .
 

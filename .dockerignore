@@ -1,6 +1,6 @@
-bin/
-obj/
-.vs/
+**/.vs
+**/bin
+**/obj
 .DS_Store
 *.user
 *.suo

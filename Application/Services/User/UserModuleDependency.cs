@@ -1,4 +1,5 @@
 using AspNetApi.Application.Services.User.UseCases;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AspNetApi.Application.Services.User
 {
