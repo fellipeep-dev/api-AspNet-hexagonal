@@ -39,10 +39,10 @@ jobs:
           dotnet-version: ${{ matrix.dotnet-version }}
 
       - name: Restore dependencies
-        run: dotnet restore "AspNetApi.sln"
+        run: dotnet restore "Api/Api.csproj"
 
       - name: Build
-        run: dotnet build "AspNetApi.sln" --no-restore --configuration Release
+        run: dotnet build "Api/Api.csproj" --no-restore --configuration Release
 
       # - name: Run tests
       #   run: dotnet test --no-build --configuration Release --collect:"XPlat Code Coverage"
