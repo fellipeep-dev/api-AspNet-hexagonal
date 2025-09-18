@@ -2,12 +2,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-COPY ["AspNetApi.csproj", "./"]
-RUN dotnet restore "AspNetApi.csproj" -r linux-musl-x64
+ENV NUGET_PACKAGES=/root/.nuget/packages
+COPY ["Api/Api.csproj", "Api/"]
+COPY ["Application/Application.csproj", "Application/"]
+COPY ["Domain/Domain.csproj", "Domain/"]
+COPY ["Infrastructure/Infrastructure.csproj", "Infrastructure/"]
+COPY ["api-AspNet-hexagonal.sln", "./"]
+
+RUN dotnet restore "api-AspNet-hexagonal.sln" -r linux-musl-x64 --disable-parallel
 
 COPY . .
 
-RUN dotnet publish "AspNetApi.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true -r linux-musl-x64
+RUN dotnet publish "Api/Api.csproj" --no-restore -c Release -o /app/publish /p:PublishSingleFile=false /p:PublishTrimmed=true -r linux-musl-x64
 
 # stage runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-alpine AS runtime
@@ -21,4 +27,4 @@ EXPOSE 80
 
 COPY --from=build /app/publish .
 
-ENTRYPOINT ["dotnet", "AspNetApi.dll"]
+ENTRYPOINT ["dotnet", "Api.dll"]
