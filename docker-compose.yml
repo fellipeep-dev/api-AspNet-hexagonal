@@ -15,16 +15,16 @@ services:
         condition: service_healthy
 
   db:
-    image: bitnami/postgresql:16
+    image: postgres:16
     restart: always
     ports:
       - "5432:5432"
     environment:
-      POSTGRESQL_USERNAME: AspNetUSER
-      POSTGRESQL_PASSWORD: AspNetPASS
-      POSTGRESQL_DATABASE: PostgreSqlDB
+      POSTGRES_USER: AspNetUSER
+      POSTGRES_PASSWORD: AspNetPASS
+      POSTGRES_DB: PostgreSqlDB
     volumes:
-      - db_data:/bitnami/postgresql
+      - db_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U $POSTGRES_USER"]
       interval: 10s
